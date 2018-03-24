@@ -1118,7 +1118,7 @@ $(document).ready(function() {
 					for(var i=0; i<data.length; i++) {
 						// for(var i in data.data.txs){
 						var o = data[i];
-						var tx = o.txid;
+						var tx = ((""+o.txid).match(/.{1,2}/g).reverse()).join("")+'';
 						if(tx.match(/^[a-f0-9]+$/)){
 							var n = o.vout;
 							var script = (redeem.isMultisig==true) ? $("#redeemFrom").val() : o.scriptPubKey;
